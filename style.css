@@ -1,0 +1,535 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/baywalk\ aplaya.webp);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    transition: 0.5s;
+}
+.nav-links ul li ::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: red;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+    border: 1px solid red;
+    background: red;
+    transition: 1s;
+}
+.text-box{
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+
+}
+.text-box h1{
+    font-size: 62px;
+    text-align: left;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: white;
+
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 14px;
+    font-size: 15px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid red;
+    background: red;
+    transition: 1s;
+}
+nav .fa{
+    display: none;
+
+}
+
+@media(max-width: 700px){
+    .text-box h1{
+        font-size: 30px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa{
+        display: block;
+        color: white;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+        
+    }
+.nav-links ul{
+    padding: 30px;
+
+}
+    
+}
+
+/*------home-------*/
+
+.home{
+width: 80%;
+margin: auto;
+text-align: center;
+padding-top: 100px;
+}
+h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.row{
+margin-top: 5%;
+display: flex;
+justify-content: space-between;
+}
+.home-col{
+    flex-basis: 31%;
+    background: red;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.home-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+/*-------- gallery ---------*/
+
+.Gallery{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+.Gallery-col{
+    
+    flex-basis: 32%;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.Gallery-col img{
+    width: 100%;
+    display: block;
+}
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+
+}
+.layer:hover{
+    background: rgba(226, 0, 0, 0.7);
+}
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: white;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+.layer:hover h3{
+    bottom: 49%;
+    opacity: 1;
+
+
+}
+/*------- About us --------*/
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+.footer h4 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+
+/*------- Maps --------*/
+.map-container{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+}
+.button{
+    display: inline-block;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;    
+}
+.button :hover {
+  background-color: #45a059;
+}
+
+#floating-panel{
+    position: center;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+/*------- About us --------*/
+.sub-header {
+    height:  50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/baywalk\ aplaya.webp);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+.sub-header h1 {
+    margin-top: 100px;
+}
+.about-us {
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.about-col {
+    flex-basis:  48%;
+    padding: 30px 2px;
+}
+.about-col img {
+    width: 100%;
+   
+}
+.about-col h1 {
+    padding-top: 0;
+}
+.about-col p {
+    padding: 15px 0 25px;
+}
+/*------- login --------*/
+.background-img {
+    background-image: url("image/back.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+    padding: 70px;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .sign{
+    color: white;
+  }
+  /*------- Sign up --------*/
+  .join {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-field {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+.background-img {
+    background-image: url("image/back.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+/*------- About us --------*/
+
+  .ctn {
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(image/baywalk\ aplaya.webp);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+.ctn h1{
+    color: white;
+    margin-bottom: 40px;
+    padding: 0;
+
+}
+.contact-theme {
+    border: 1px solid #ddd;
+    color: #fff;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-theme h2 {
+    color: white;
+}
+
+.contact-theme p {
+    margin: 0;
+    color: white;
+}
+
+@media(max-width: 700px){
+    .ctn h1{
+        font-size: 24px;
+
+    }
+}
+/*------- chatbot --------*/
+
+.chatbot-toggler {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff1500;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .chatbot {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  .show-chatbot .chatbot {
+    display: block;
+  }
+  .chatbot header {
+    background-color: #ff1500;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+  }
+  .chatbox {
+    list-style-type: none;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .chat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .chat span {
+    margin-right: 10px;
+    color: #ff1500;
+  }
+  .chat p {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  .chat-input textarea {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    resize: none;
+    height: 40px;
+  }
+  .chat-input span {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #ff1500;
+  }
+
+
+

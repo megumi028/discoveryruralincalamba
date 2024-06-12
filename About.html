@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="with=device-width, intial-scale=1.0">
+ <title>Discoveries of rurals in Calamba</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/main.js"></script>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="Home.html"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="Maps.html">Maps</a></li>
+                    <li><a href="login.php">Log-out</a></li>
+                    
+                </ul>
+            </div>
+            <div>
+                <i class="fa fa-bars" onclick="showMenu()" ></i>
+            </div>
+            
+        </nav>
+        <h1>About Us</h1>
+    </section>
+<!-------About us content-------->
+<section class="about-us">
+    <div class="row">
+        <div class="about-col">
+            <h1>Welcome to Eco Discoveries in Calamba: Unveiling Sustainable Rural Escapes!</h1>
+        <p>
+
+            Imagine a place where nature is untouched, where rivers flow freely, and where the air is clean and fresh. That's Calamba, a special spot in the Philippines waiting for you to explore.
+            
+            Here at Eco Discoveries, we want to show you the best of Calamba while also taking care of the environment. Our website is all about sharing the beauty of Calamba's countryside and helping you have an awesome time while keeping things green.
+            
+            Join us as we uncover the secrets of Calamba's nature and culture. Whether you love hiking, learning about new cultures, or just relaxing in beautiful surroundings, there's something here for you.
+            
+            By supporting sustainable tourism in Calamba, we're not only helping to protect the environment and preserve local traditions but also making life better for the people who live here.
+            
+            So come on over, discover the magic of Calamba, and let's make a difference together with Eco Discoveries!</p>
+        </div>
+        <div class="about-col">
+            <img src="image/jose-rizal-shrine-calamba.jpg" alt="">
+        </div>
+    </div>
+
+
+</section>
+   
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+       }
+       function hideMenu(){
+        navLinks.style.right = "-200px";
+       }
+    </script>
+</body>
+</html>

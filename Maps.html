@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discoveries of rurals in Calamba</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/main.js"></script>
+</head>
+<body class="show-chatbot">
+    <section class="sub-header">
+        <nav>
+            <a href="Home.html"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                  <li><a href="Home.html">Home</a></li>
+                  <li><a href="About.html">About</a></li>
+                  <li><a href="Gallery.html">Gallery</a></li>
+                  <li><a href="Maps.html">Maps</a></li>
+                  <li><a href="login.php">Log-out</a></li>
+                    
+                </ul>
+            </div>
+            <div>
+                <i class="fa fa-bars" onclick="showMenu()" ></i>
+            </div>
+            
+        </nav>
+        <h1>Maps</h1>
+    </section>
+
+    <div class="container">
+        <h1>Explore the Calamba</h1>
+    </div>
+    <div id="floating-panel">
+        <div>
+            <div>
+                <input type="text" id="from", placeholder="Origin">
+            </div>
+        </div>
+        <div>
+            <input type="text" id="to", placeholder="destination">
+        </div>
+        <b>Mode of travel</b>
+        <select id="mode">
+            <option value="DRIVING">DRIVING</option>
+            <option value="WALKING">WALKING</option>
+            <option value="BICYCLE">BICYCLE</option>
+            <option value="TRANSIT">TRANSIT</option>
+        </select>
+    </div>
+    <div id="map"></div>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d123783.23320268503!2d121.101456!3d14.181535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd638323842f97%3A0x495f7420f7a6b811!2sCalamba%2C%204027!5e0!3m2!1sen!2sph!4v1714134805997!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <button class="chatbot-toggler">
+        <span>Open Chat</span>
+      </button>
+      <div class="chatbot">
+        <header>
+          <h2>Tourbot</h2>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span>🤖</span>
+            <p>Hi there! 👋<br>Please enter a tourist spot.</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a tourist spot..."></textarea>
+          <span id="send-btn">Send</span>
+        </div>
+      </div>
+    
+   
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+       }
+       function hideMenu(){
+        navLinks.style.right = "-200px";
+       }
+
+       document.querySelector('.chatbot-toggler').addEventListener('click', function() {
+      document.body.classList.toggle('show-chatbot');
+    });
+
+    document.getElementById('send-btn').addEventListener('click', function() {
+      const message = document.querySelector('.chat-input textarea').value;
+      if (message.trim()) {
+        addOutgoingMessage(message);
+        handleTouristSpot(message);
+        document.querySelector('.chat-input textarea').value = '';
+      }
+    });
+
+    function addIncomingMessage(message) {
+      const chatbox = document.querySelector('.chatbox');
+      const li = document.createElement('li');
+      li.classList.add('chat', 'incoming');
+      li.innerHTML = `<span>🤖</span><p>${message}</p>`;
+      chatbox.appendChild(li);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function addOutgoingMessage(message) {
+      const chatbox = document.querySelector('.chatbox');
+      const li = document.createElement('li');
+      li.classList.add('chat', 'outgoing');
+      li.innerHTML = `<p>${message}</p>`;
+      chatbox.appendChild(li);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+    function handleTouristSpot(touristSpot) {
+  // Here you can implement logic to fetch information about the tourist spot
+  // For demonstration, let's just echo back the spot with some information
+  let info = "";
+
+  switch (touristSpot.toLowerCase()) {
+    case "hello":
+      info = ` ${touristSpot}: How can I help you`;
+      break;
+    case "huling ilog ng calamba":
+      info = `Information about ${touristSpot}: The Huling Ilog ng Calamba, located at Pasong Kalabaw in Barangay Bunggo-Mabato, Calamba City, is a significant river in the area. "Huling Ilog" means "last river" in Filipino, implying its importance as one of the remaining bodies of water in the area. It likely holds historical and ecological significance for the local community, serving as a water source and habitat for various plants and animals.`;
+      break;
+      case "how to locate huling ilog ng calamba":
+      info = ` ${touristSpot}: To locate Huling Ilog ng Calamba from SM Calamba, you will start by exiting SM Calamba, which is situated along the National Highway. Turn right onto the National Highway (AH26) heading southeast towards the Calamba City Plaza. Continue straight for approximately 2.5 kilometers. Along this route, you will pass several landmarks including the Calamba Doctors' Hospital and the Rizal Shrine. or you can visit Google maps for more details.`;
+      break;
+    case "matang tubig":
+      info = `Information about ${touristSpot}: Matang Tubig in Calamba, Laguna, is a tranquil spring known for its clear waters and scenic surroundings. It's a peaceful spot where you can relax, take a dip, and enjoy nature's beauty. Perfect for a refreshing break or a leisurely picnic with family and friends.`;
+      break;
+      case "how to locate matang tubig":
+      info = ` ${touristSpot}: To locate Matang Tubig from SM Calamba, you can follow these directions. Starting from SM Calamba, head northwest on Pan-Philippine Highway/AH26. Continue on this route for approximately 1.5 kilometers until you reach the intersection with Real Road. Take a right turn onto Real Road and follow it for about 2.2 kilometers. As you proceed, you'll pass by various local landmarks and establishments. For more detail you can visit Google maps.`;
+      break;  
+    case "jose rizal shrine":
+      info = `Information about ${touristSpot}:Bahay ni Rizal in Calamba, Laguna, is the house where Jose Rizal grew up. It's like stepping into his past, seeing where he lived and learned. You can wander through the rooms and imagine what life was like for him. It's a special place for anyone curious about our history and Rizal's story.`;
+      break;
+      case "how to locate jose rizal shrine":
+      info = ` ${touristSpot}: To locate the José Rizal Shrine from SM Calamba, you can follow these directions, which cover a distance of approximately 1.5 kilometers. Start by exiting SM Calamba and turning right onto Real Road. Continue straight for about 500 meters until you reach the intersection with Rizal Street. Turn left onto Rizal Street and proceed for another 1 kilometer. You will find the José Rizal Shrine on your left, marked by its distinct historical architecture and a statue of José Rizal himself. This route is not only straightforward but also offers a glimpse into the vibrant life of Calamba City, making it a pleasant short journey from the bustling commercial area to a site of national heritage. For more detail you can visit Google maps.`;
+      break;
+      case "canlubang golf course":
+      info = `Information about ${touristSpot}:The Canlubang Golf Course in Calamba, Laguna, is a premier destination for golf enthusiasts. With its lush fairways, challenging holes, and stunning landscape, it offers a top-notch golfing experience. Whether you're a seasoned player or a beginner, the course provides a picturesque setting to enjoy the game and unwind amidst nature's beauty`;
+      break;
+      case "how to locate canlubang golf course":
+      info = ` ${touristSpot}: To get to Canlubang Golf Course from SM Calamba, start by exiting the mall and heading northwest on the National Highway. Continue straight for about 1.5 kilometers until you reach the intersection with Calamba-Sta. Rosa Road. Turn left onto Calamba-Sta. Rosa Road and drive for approximately 7 kilometers. Along this stretch, you will pass by several landmarks, including the Canlubang Sugar Estate. For more detail you can visit Google maps.`;
+      break;
+      case "ilog ng sitio buntog":
+      info = `Information about ${touristSpot}:The Ilog ng Sitio Buntog in Calamba, Laguna, is a scenic river that flows through the heart of the community. It's a peaceful spot where locals and visitors alike can enjoy the soothing sounds of flowing water and the beauty of nature. Whether you're looking to relax by the riverbank or take a leisurely stroll along its shores, the Ilog ng Sitio Buntog offers a tranquil escape from the hustle and bustle of city life.`;
+      break; 
+      case "how to locate ilog ng sitio buntog":
+      info = ` ${touristSpot}: To travel from SM City Calamba to Ilog ng Sitio Buntog in Calamba, Laguna, you will need to navigate a route that spans approximately 10 kilometers. Begin your journey by exiting SM City Calamba onto National Highway. Head southeast on the highway towards the city center. After about 1.5 kilometers, you will reach a major intersection with Calamba Crossing. Continue straight through this busy intersection, following the signs for Calamba-Pansol Road. For more detail you can visit Google maps.`;
+      break;
+      case "sol y viento":
+      info = `Information about ${touristSpot}:Km. 55 Makiling Heights, Calamba, Luzon 4027 Philippines
+      Welcome to Sol Y Viento Mountain Hot Springs Resort, your Calamba “home away from home.” Sol Y Viento Mountain Hot Springs Resort aims to make your visit as relaxing and enjoyable as possible, which is why so many guests continue to come back year after year.`;
+      break;
+      case "how to locate sol y viento":
+      info = ` ${touristSpot}:To locate the Sol Y Viento Mountain Hot Springs Resort in Calamba from SM City Calamba, start your journey at the main entrance of SM City Calamba, which is a prominent shopping mall situated along the National Highway. From here, drive south on the National Highway (AH26) towards Pansol. This stretch of road is well-marked and typically busy, passing through the commercial and residential areas of Calamba.
+      Continue straight for approximately 4.5 kilometers, and you will start to see signage for various resorts and hot springs, which indicates that you are approaching Pansol, a famous resort area in Calamba. Along the way, you will pass notable landmarks such as the Rizal Shrine and several local eateries. For more detail you can visit Google maps.`;
+      break;
+      case "aplaya baywalk":
+      info = `Information about ${touristSpot}:The Baywalk is a nice place by the lake where you can take a stroll, enjoy the view, and relax. There are food stalls and activities, making it a favorite spot for locals and visitors to hang out and have fun.`;
+      break;
+      case "how to locate aplaya baywalk":
+      info = ` ${touristSpot}: To reach Aplaya Baywalk in Calamba from SM Calamba, you'll begin your journey at the bustling SM City Calamba, a major shopping and entertainment center in the heart of the city. As you exit the mall, you will want to head south on the National Highway (AH26), which is the primary road running through Calamba and connecting it to neighboring towns and cities. For more detail you can visit Google maps.`;
+      break;
+      case "malakoko ng sucol natural hotsprings":
+      info = `Information about ${touristSpot}:Malakoko is a natural hot spring located on the shores of Laguna Lake in Barangay Sucol. To reach it, one can pass through Malakoko corner, as referred to by the locals of Barangay Sucol and neighboring barangays. 
+      There are three small springs in Malakoko: two square-shaped and one circular. The water temperature in each spring ranges from 35 to 40 degrees Celsius, with depths reaching only up to the knees or waist of an adult. 
+      The first spring is closest to the lake and has the highest temperature, while the second spring reaches up to half the knee's depth, and the third spring is the largest, with depths reaching up to below the knee. 
+      The walls of each spring are made of living rock with a slippery texture due to the algae surrounding them. Around Malakoko, there are living rock seats used by people soaking their feet in the hot water.`;
+      break; 
+      case "how to locate malakoko ng sucol natural hotsprings ":
+      info = ` ${touristSpot}: Start by exiting SM Calamba and head towards the National Highway. Turn right onto the National Highway and continue for approximately 1.5 kilometers until you reach the intersection with Real Road. Take a left onto Real Road and proceed straight for about 3 kilometers. As you drive along Real Road, you will pass several landmarks, including Calamba Doctors' Hospital and Calamba City Hall. Continue straight until you reach the junction with Bucal Bypass Road. For more detail you can visit Google maps.`;
+      break;  
+    default:
+      info = `Sorry, information about ${touristSpot} is not available at the moment.`;
+  }
+
+  addIncomingMessage(info);
+}
+
+// Example function for another tourist spot
+function handleAnotherTouristSpot(touristSpot) {
+  // Here you can implement logic to fetch information about the tourist spot
+  // For demonstration, let's just echo back the spot with some information
+  const info = `Information about ${touristSpot}: This is another tourist spot with some information.`;
+  addIncomingMessage(info);
+}
+    </script>
+</body>
+</html>
+
